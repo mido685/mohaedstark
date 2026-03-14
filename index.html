@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STARK AI — Intelligent Systems & AI Engineering</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       CURSOR GLOW
+  ══════════════════════════════════════════ -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ══════════════════════════════════════════
+       NOISE OVERLAY
+  ══════════════════════════════════════════ -->
+  <div class="noise-overlay"></div>
+
+  <!-- ══════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <img src="logo.png" alt="STARK AI" class="logo-img" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#tech" class="nav-link">Tech</a></li>
+        <li><a href="#architecture" class="nav-link">Architecture</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-cta" onclick="scrollToSection('contact')">Get in Touch</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       HERO SECTION
+  ══════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <!-- Animated grid background -->
+    <div class="hero-grid"></div>
+    <!-- Glowing orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>AI Engineering Studio · Cairo, Egypt</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="title-line" data-delay="0">STARK</span>
+        <span class="title-line accent-line" data-delay="150">AI</span>
+      </h1>
+
+      <p class="hero-subtitle">Building Intelligent AI Systems for the Future</p>
+
+      <p class="hero-description">
+        We architect and deploy production-ready AI assistants, NLP systems, and intelligent
+        automation tools — turning raw language into structured intelligence that drives real outcomes.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          <span class="btn-text">View Projects</span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <span>Contact Us</span>
+        </a>
+      </div>
+
+      <!-- Live metrics bar -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" data-target="3">0</span>
+          <span class="stat-label">AI Systems Deployed</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+          <span class="stat-label">Python / FastAPI Stack</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="1">0</span>
+          <span class="stat-label">Founder · NLP Engineer</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating terminal card -->
+    <div class="terminal-card">
+      <div class="terminal-header">
+        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        <span class="terminal-title">stark_ai.py</span>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <div class="terminal-line"><span class="t-keyword">from</span> <span class="t-module">stark_ai</span> <span class="t-keyword">import</span> <span class="t-func">MedicalAssistant</span></div>
+        <div class="terminal-line"></div>
+        <div class="terminal-line"><span class="t-comment"># Extract medication entities via NER</span></div>
+        <div class="terminal-line"><span class="t-var">assistant</span> <span class="t-op">=</span> <span class="t-func">MedicalAssistant</span>()</div>
+        <div class="terminal-line"><span class="t-var">result</span> <span class="t-op">=</span> <span class="t-var">assistant</span>.<span class="t-func">extract</span>(<span class="t-str">"Take 500mg aspirin twice daily"</span>)</div>
+        <div class="terminal-line"></div>
+        <div class="terminal-line"><span class="t-comment"># → DRUG: aspirin | DOSE: 500mg | FREQ: twice daily</span></div>
+        <div class="terminal-line"><span class="t-comment"># → Reminders set: 08:00 | 20:00</span></div>
+        <div class="terminal-line"><span class="t-comment"># → Telegram notification sent ✓</span></div>
+        <div class="terminal-line blink-line"><span class="t-prompt">▌</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ABOUT SECTION
+  ══════════════════════════════════════════ -->
+  <section class="about section-pad" id="about">
+    <div class="container">
+      <div class="section-label">01 / About</div>
+      <h2 class="section-title">Who We Are</h2>
+
+      <div class="about-grid">
+        <!-- Left: bio -->
+        <div class="about-bio reveal">
+          <div class="about-avatar">
+            <div class="avatar-ring"></div>
+            <div class="avatar-initials">SA</div>
+          </div>
+          <h3 class="about-name">STARK AI</h3>
+          <p class="about-role">AI Engineer · NLP Specialist · Backend Architect</p>
+          <p class="about-text">
+            STARK AI is an AI engineering studio based in Cairo, Egypt, founded by a specialist in
+            Natural Language Processing, intelligent systems, and AI-powered automation. We go from
+            research to production — custom NER models, FastAPI backends, medical-grade assistants,
+            and smart notification pipelines — all engineered with precision and deployed at scale.
+          </p>
+          <p class="about-text">
+            Our approach blends deep NLP expertise with solid backend engineering, ensuring every
+            system we ship is not just intelligent, but reliable, maintainable, and ready for the real world.
+          </p>
+          <div class="about-tags">
+            <span class="tag">NLP Research</span>
+            <span class="tag">Production AI</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Cairo, Egypt 🇪🇬</span>
+          </div>
+        </div>
+
+        <!-- Right: focus areas -->
+        <div class="about-focus reveal">
+          <div class="focus-card" data-i="01">
+            <div class="focus-icon">🧠</div>
+            <h4>Artificial Intelligence</h4>
+            <p>End-to-end AI systems designed for real-world deployment with measurable impact.</p>
+          </div>
+          <div class="focus-card" data-i="02">
+            <div class="focus-icon">💬</div>
+            <h4>Natural Language Processing</h4>
+            <p>Custom NER, intent classification, semantic search, and text understanding pipelines.</p>
+          </div>
+          <div class="focus-card" data-i="03">
+            <div class="focus-icon">🤖</div>
+            <h4>AI Assistants</h4>
+            <p>Context-aware assistants with memory, reminders, and multi-channel notifications.</p>
+          </div>
+          <div class="focus-card" data-i="04">
+            <div class="focus-icon">⚡</div>
+            <h4>Automation Systems</h4>
+            <p>Intelligent pipelines that reduce manual work through smart scheduling and triggers.</p>
+          </div>
+          <div class="focus-card" data-i="05">
+            <div class="focus-icon">📈</div>
+            <h4>Machine Learning Solutions</h4>
+            <p>Model training, fine-tuning transformers, and evaluation pipelines built to perform.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       PROJECTS SECTION
+  ══════════════════════════════════════════ -->
+  <section class="projects section-pad" id="projects">
+    <div class="container">
+      <div class="section-label">02 / Projects</div>
+      <h2 class="section-title">What We've Built</h2>
+      <p class="section-sub">Production AI systems with real impact — not toy demos.</p>
+
+      <div class="projects-grid">
+
+        <!-- ── Project 1: STARK Medical Assistant ── -->
+        <div class="project-card featured reveal" data-project="medical">
+          <div class="card-glow"></div>
+          <div class="card-number">01</div>
+          <div class="card-badge">Featured</div>
+
+          <div class="card-icon-wrap">
+            <div class="card-icon">💊</div>
+          </div>
+
+          <h3 class="card-title">STARK Medical Assistant</h3>
+          <p class="card-desc">
+            A production-grade AI system that processes natural language medication instructions.
+            Uses a custom fine-tuned NER model to extract drug names, dosages, and frequencies —
+            then automatically schedules reminders and sends Telegram push notifications to patients.
+          </p>
+
+          <ul class="card-features">
+            <li>✦ Custom NER model extracts DRUG · DOSE · FREQ · TIME entities</li>
+            <li>✦ APScheduler triggers reminders at exact medication times</li>
+            <li>✦ Telegram Bot API delivers real-time push notifications</li>
+            <li>✦ FastAPI backend with PostgreSQL &amp; connection pooling</li>
+            <li>✦ Rate limiting, input validation &amp; structured logging</li>
+          </ul>
+
+          <div class="card-tech">
+            <span>Python</span><span>FastAPI</span><span>Transformers</span>
+            <span>PostgreSQL</span><span>Telegram API</span><span>APScheduler</span>
+          </div>
+
+          <div class="card-actions">
+            <a href="#" class="btn btn-neon btn-sm">
+              <span>⚡ Live Demo</span>
+            </a>
+            <a href="#" class="btn btn-dashboard btn-sm">
+              <span>📊 Dashboard</span>
+            </a>
+            <a href="#" class="btn btn-outline btn-sm">
+              <span>GitHub →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Project 2: AI Equipment Chatbot ── -->
+        <div class="project-card reveal" data-project="chatbot">
+          <div class="card-glow"></div>
+          <div class="card-number">02</div>
+
+          <div class="card-icon-wrap">
+            <div class="card-icon">🔧</div>
+          </div>
+
+          <h3 class="card-title">AI Equipment Chatbot</h3>
+          <p class="card-desc">
+            An intelligent NLP chatbot for answering complex equipment-related queries using
+            sentence embeddings and intent classification — no rigid decision trees, just
+            pure language understanding.
+          </p>
+
+          <ul class="card-features">
+            <li>✦ Sentence-BERT embeddings for semantic similarity</li>
+            <li>✦ Intent classification with confidence scoring</li>
+            <li>✦ Natural language queries over equipment database</li>
+            <li>✦ Fallback handling for out-of-scope questions</li>
+          </ul>
+
+          <div class="card-tech">
+            <span>Python</span><span>Sentence-BERT</span><span>NLP</span>
+            <span>FastAPI</span><span>Vector Search</span>
+          </div>
+
+          <div class="card-actions">
+            <a href="#" class="btn btn-neon btn-sm">
+              <span>⚡ Live Demo</span>
+            </a>
+            <a href="#" class="btn btn-dashboard btn-sm">
+              <span>📊 Dashboard</span>
+            </a>
+            <a href="#" class="btn btn-outline btn-sm">
+              <span>GitHub →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Project 3: Custom NLP Pipeline ── -->
+        <div class="project-card reveal" data-project="nlp">
+          <div class="card-glow"></div>
+          <div class="card-number">03</div>
+
+          <div class="card-icon-wrap">
+            <div class="card-icon">🔬</div>
+          </div>
+
+          <h3 class="card-title">Custom NLP Pipeline</h3>
+          <p class="card-desc">
+            A ground-up NLP engineering pipeline covering every stage from raw data to
+            trained model — custom tokenization, NER training with Hugging Face Transformers,
+            and production-ready preprocessing for medical text.
+          </p>
+
+          <ul class="card-features">
+            <li>✦ Custom tokenizer built for medical domain vocabulary</li>
+            <li>✦ NER training loop with Hugging Face Trainer API</li>
+            <li>✦ Full data preprocessing &amp; annotation pipeline</li>
+            <li>✦ Model evaluation, F1 scoring &amp; checkpoint export</li>
+          </ul>
+
+          <div class="card-tech">
+            <span>Python</span><span>Transformers</span><span>HuggingFace</span>
+            <span>PyTorch</span><span>NER</span>
+          </div>
+
+          <div class="card-actions">
+            <a href="#" class="btn btn-neon btn-sm">
+              <span>⚡ Live Demo</span>
+            </a>
+            <a href="#" class="btn btn-dashboard btn-sm">
+              <span>📊 Dashboard</span>
+            </a>
+            <a href="#" class="btn btn-outline btn-sm">
+              <span>GitHub →</span>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /projects-grid -->
+
+      <!-- Feedback strip -->
+      <div class="feedback-strip reveal">
+        <div class="feedback-icon">💬</div>
+        <div class="feedback-text">
+          <strong>Share your feedback</strong>
+          <span>Have you used one of our systems? We'd love to hear from you.</span>
+        </div>
+        <a href="#contact" class="btn btn-feedback">Leave Feedback →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       TECH SECTION
+  ══════════════════════════════════════════ -->
+  <section class="tech section-pad" id="tech">
+    <div class="container">
+      <div class="section-label">03 / Technologies</div>
+      <h2 class="section-title">Our Stack</h2>
+      <p class="section-sub">The tools and frameworks powering every STARK AI system.</p>
+
+      <div class="tech-grid">
+        <div class="tech-card reveal" data-tech="python">
+          <div class="tech-logo">🐍</div>
+          <div class="tech-name">Python</div>
+          <div class="tech-bar"><div class="tech-fill" data-width="97"></div></div>
+          <div class="tech-pct">97%</div>
+        </div>
+        <div class="tech-card reveal" data-tech="ml">
+          <div class="tech-logo">🤖</div>
+          <div class="tech-name">Machine Learning</div>
+          <div class="tech-bar"><div class="tech-fill" data-width="88"></div></div>
+          <div class="tech-pct">88%</div>
+        </div>
+        <div class="tech-card reveal" data-tech="nlp">
+          <div class="tech-logo">💬</div>
+          <div class="tech-name">NLP</div>
+          <div class="tech-bar"><div class="tech-fill" data-width="93"></div></div>
+          <div class="tech-pct">93%</div>
+        </div>
+        <div class="tech-card reveal" data-tech="fastapi">
+          <div class="tech-logo">⚡</div>
+          <div class="tech-name">FastAPI</div>
+          <div class="tech-bar"><div class="tech-fill" data-width="92"></div></div>
+          <div class="tech-pct">92%</div>
+        </div>
+        <div class="tech-card reveal" data-tech="transformers">
+          <div class="tech-logo">🔬</div>
+          <div class="tech-name">Transformers</div>
+          <div class="tech-bar"><div class="tech-fill" data-width="85"></div></div>
+          <div class="tech-pct">85%</div>
+        </div>
+        <div class="tech-card reveal" data-tech="nn">
+          <div class="tech-logo">🧠</div>
+          <div class="tech-name">Neural Networks</div>
+          <div class="tech-bar"><div class="tech-fill" data-width="82"></div></div>
+          <div class="tech-pct">82%</div>
+        </div>
+        <div class="tech-card reveal" data-tech="api">
+          <div class="tech-logo">🔌</div>
+          <div class="tech-name">APIs & REST</div>
+          <div class="tech-bar"><div class="tech-fill" data-width="95"></div></div>
+          <div class="tech-pct">95%</div>
+        </div>
+        <div class="tech-card reveal" data-tech="db">
+          <div class="tech-logo">🗄️</div>
+          <div class="tech-name">Databases</div>
+          <div class="tech-bar"><div class="tech-fill" data-width="88"></div></div>
+          <div class="tech-pct">88%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ARCHITECTURE SECTION
+  ══════════════════════════════════════════ -->
+  <section class="architecture section-pad" id="architecture">
+    <div class="container">
+      <div class="section-label">04 / Architecture</div>
+      <h2 class="section-title">System Architecture</h2>
+      <p class="section-sub">How STARK AI systems are wired together — from user input to intelligent output.</p>
+
+      <div class="arch-diagram reveal">
+        <div class="arch-node user-node">
+          <div class="node-icon">👤</div>
+          <div class="node-label">User</div>
+          <div class="node-sub">Natural Language Input</div>
+        </div>
+        <div class="arch-arrow"><div class="arrow-line"><div class="arrow-pulse"></div></div><span>HTTPS</span></div>
+
+        <div class="arch-node web-node">
+          <div class="node-icon">🌐</div>
+          <div class="node-label">Web Interface</div>
+          <div class="node-sub">STARK UI / API Client</div>
+        </div>
+        <div class="arch-arrow"><div class="arrow-line"><div class="arrow-pulse"></div></div><span>REST</span></div>
+
+        <div class="arch-node api-node">
+          <div class="node-icon">⚡</div>
+          <div class="node-label">FastAPI Backend</div>
+          <div class="node-sub">Rate Limiting · Auth · Pooling</div>
+        </div>
+        <div class="arch-arrow"><div class="arrow-line"><div class="arrow-pulse"></div></div><span>Pipeline</span></div>
+
+        <div class="arch-node nlp-node highlighted">
+          <div class="node-icon">🧠</div>
+          <div class="node-label">NLP Model</div>
+          <div class="node-sub">Custom NER · BERT · Transformers</div>
+        </div>
+        <div class="arch-arrow"><div class="arrow-line"><div class="arrow-pulse"></div></div><span>SQL</span></div>
+
+        <div class="arch-node db-node">
+          <div class="node-icon">🗄️</div>
+          <div class="node-label">Database</div>
+          <div class="node-sub">PostgreSQL · Connection Pool</div>
+        </div>
+        <div class="arch-arrow"><div class="arrow-line"><div class="arrow-pulse"></div></div><span>Push</span></div>
+
+        <div class="arch-node notif-node">
+          <div class="node-icon">📱</div>
+          <div class="node-label">Notifications</div>
+          <div class="node-sub">Telegram Bot · Scheduler</div>
+        </div>
+      </div>
+
+      <!-- Architecture detail cards -->
+      <div class="arch-details">
+        <div class="arch-detail-card reveal">
+          <div class="adc-step">STEP 1</div>
+          <h4>Input Processing</h4>
+          <p>User submits natural language text via web UI or API. Input is sanitized, validated, and rate-checked before any processing begins.</p>
+        </div>
+        <div class="arch-detail-card reveal">
+          <div class="adc-step">STEP 2</div>
+          <h4>NLP Extraction</h4>
+          <p>The fine-tuned NER model extracts structured entities: DRUG, DOSE, FREQUENCY, and TIME — converting unstructured text into actionable data.</p>
+        </div>
+        <div class="arch-detail-card reveal">
+          <div class="adc-step">STEP 3</div>
+          <h4>Schedule & Persist</h4>
+          <p>Reminder times are computed, stored in PostgreSQL, and indexed for fast scheduler lookups via GIN indexing on ARRAY columns.</p>
+        </div>
+        <div class="arch-detail-card reveal">
+          <div class="adc-step">STEP 4</div>
+          <h4>Notify</h4>
+          <p>APScheduler ticks every minute, matching current time against reminder arrays and firing Telegram push notifications to each patient.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CONTACT SECTION
+  ══════════════════════════════════════════ -->
+  <section class="contact section-pad" id="contact">
+    <div class="container">
+      <div class="section-label">05 / Contact</div>
+      <h2 class="section-title">Let's Build Together</h2>
+      <p class="section-sub">Have a project in mind or want to collaborate? Reach out.</p>
+
+      <div class="contact-grid">
+        <!-- Left: info + links -->
+        <div class="contact-info reveal">
+          <div class="contact-links">
+            <a href="/cdn-cgi/l/email-protection#7b131e1717143b080f1a09101a12551f1e0d" class="contact-link">
+              <span class="cl-icon">✉️</span>
+              <div>
+                <span class="cl-label">Email</span>
+                <span class="cl-value"><span class="__cf_email__" data-cfemail="0f676a6363604f7c7b6e7d646e66216b6a79">[email&#160;protected]</span></span>
+              </div>
+            </a>
+            <a href="https://github.com/starkai" target="_blank" class="contact-link">
+              <span class="cl-icon">🐙</span>
+              <div>
+                <span class="cl-label">GitHub</span>
+                <span class="cl-value">github.com/starkai</span>
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/starkai" target="_blank" class="contact-link">
+              <span class="cl-icon">💼</span>
+              <div>
+                <span class="cl-label">LinkedIn</span>
+                <span class="cl-value">linkedin.com/in/starkai</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="availability-card">
+            <div class="avail-dot"></div>
+            <div>
+              <strong>Currently Available</strong>
+              <p>Open to AI consulting, NLP projects, and production system builds.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div class="contact-form-wrap reveal">
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">Name</label>
+                <input type="text" id="fname" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="femail">Email</label>
+                <input type="email" id="femail" name="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fsubject">Subject</label>
+              <select id="fsubject" name="subject">
+                <option value="">Select a topic…</option>
+                <option value="project">New AI Project</option>
+                <option value="nlp">NLP Consultation</option>
+                <option value="feedback">Feedback on a System</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fmessage">Message</label>
+              <textarea id="fmessage" name="message" rows="5" placeholder="Tell us about your project or leave your feedback…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-arrow">→</span>
+            </button>
+            <div class="form-success" id="formSuccess">
+              ✅ Message sent! We'll get back to you within 24 hours.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="logo.png" alt="STARK AI" class="logo-img footer-logo-img" />
+      </div>
+      <p class="footer-copy">© 2026 STARK AI — Intelligent Systems &amp; AI Engineering</p>
+      <div class="footer-links">
+        <a href="#hero">Top</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</
